@@ -27,6 +27,12 @@ jobs:
       - name: static Check
         run: staticcheck ./...
 
+  security:
+    -name: Install gosec
+    run: go install github.com/securego/gosec/v2/cmd/gosec@latest
+    
+    - name: Go sec
+      run: gosec ./...
 
   tests:
     name: Tests
