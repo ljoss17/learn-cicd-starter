@@ -27,8 +27,8 @@ jobs:
       - name: static Check
         run: staticcheck ./...
 
-  security:
-    name: Security
+  tests:
+    name: Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -45,19 +45,6 @@ jobs:
     
       - name: Go sec
         run: gosec ./...
-
-  tests:
-    name: Tests
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v4
-
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: "1.26.0"
 
       - name: Go version
         run: go test ./... -cover
