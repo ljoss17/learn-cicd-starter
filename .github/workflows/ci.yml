@@ -28,11 +28,15 @@ jobs:
         run: staticcheck ./...
 
   security:
-    -name: Install gosec
-    run: go install github.com/securego/gosec/v2/cmd/gosec@latest
+    name: Security
+    runs-on: ubuntu-latest
+
+    steps:
+      -name: Install gosec
+      run: go install github.com/securego/gosec/v2/cmd/gosec@latest
     
-    - name: Go sec
-      run: gosec ./...
+      - name: Go sec
+        run: gosec ./...
 
   tests:
     name: Tests
