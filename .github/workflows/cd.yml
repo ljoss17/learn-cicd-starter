@@ -20,7 +20,7 @@ jobs:
           go-version: "1.26.0"
 
       - name: Set up Goose
-        uses: actions/setup-goose@1
+        uses: mscno/setup-goose@1
 
       - name: Run deploy script
         run: ./scripts/buildprod.sh
